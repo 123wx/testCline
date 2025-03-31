@@ -15,92 +15,120 @@
       position: relative;
       width: 0;
       height: 0;
-      border-left: 50px solid transparent;
-      border-right: 50px solid transparent;
-      border-bottom: 100px solid green;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 150px solid #228B22;
     }
 
     .tree::before {
       content: '';
       position: absolute;
       top: -50px;
-      left: -50px;
+      left: -100px;
       width: 0;
       height: 0;
-      border-left: 50px solid transparent;
-      border-right: 50px solid transparent;
-      border-bottom: 100px solid green;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 150px solid #228B22;
     }
 
     .tree::after {
       content: '';
       position: absolute;
       top: -100px;
-      left: -50px;
+      left: -100px;
       width: 0;
       height: 0;
-      border-left: 50px solid transparent;
-      border-right: 50px solid transparent;
-      border-bottom: 100px solid green;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 150px solid #228B22;
+    }
+
+    .trunk {
+      position: absolute;
+      top: 150px;
+      left: -25px;
+      width: 50px;
+      height: 100px;
+      background: #8B4513;
     }
 
     .lights {
       position: absolute;
-      width: 10px;
-      height: 10px;
+      width: 15px;
+      height: 15px;
       background: yellow;
       border-radius: 50%;
       box-shadow: 0 0 10px yellow;
       animation: glow 1s infinite alternate;
     }
 
-    .lights:nth-child(1) {
-      top: -20px;
-      left: -20px;
-      animation-delay: 0s;
+    .lights.red {
+      background: red;
+      box-shadow: 0 0 10px red;
     }
 
-    .lights:nth-child(2) {
-      top: -40px;
-      left: 0;
-      animation-delay: 0.2s;
+    .lights.blue {
+      background: blue;
+      box-shadow: 0 0 10px blue;
     }
 
-    .lights:nth-child(3) {
-      top: -20px;
-      right: -20px;
-      animation-delay: 0.4s;
+    .lights.green {
+      background: green;
+      box-shadow: 0 0 10px green;
     }
 
-    .lights:nth-child(4) {
-      top: -60px;
-      left: -10px;
-      animation-delay: 0.6s;
+    .lights.purple {
+      background: purple;
+      box-shadow: 0 0 10px purple;
     }
 
-    .lights:nth-child(5) {
-      top: -60px;
-      right: -10px;
-      animation-delay: 0.8s;
+    .star {
+      position: absolute;
+      top: -200px;
+      left: -25px;
+      width: 0;
+      height: 0;
+      border-left: 25px solid transparent;
+      border-right: 25px solid transparent;
+      border-bottom: 50px solid gold;
+      animation: twinkle 1s infinite alternate;
     }
 
     @keyframes glow {
       from {
-        box-shadow: 0 0 10px yellow;
+        box-shadow: 0 0 10px currentColor;
       }
       to {
-        box-shadow: 0 0 20px yellow, 0 0 30px yellow;
+        box-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+      }
+    }
+
+    @keyframes twinkle {
+      from {
+        transform: scale(1);
+        opacity: 1;
+      }
+      to {
+        transform: scale(1.2);
+        opacity: 0.8;
       }
     }
   </style>
 </head>
 <body>
   <div class="tree">
-    <div class="lights"></div>
-    <div class="lights"></div>
-    <div class="lights"></div>
-    <div class="lights"></div>
-    <div class="lights"></div>
+    <div class="trunk"></div>
+    <div class="star"></div>
+    <div class="lights red" style="top: -20px; left: -20px; animation-delay: 0s;"></div>
+    <div class="lights blue" style="top: -40px; left: 0; animation-delay: 0.2s;"></div>
+    <div class="lights green" style="top: -20px; right: -20px; animation-delay: 0.4s;"></div>
+    <div class="lights purple" style="top: -60px; left: -10px; animation-delay: 0.6s;"></div>
+    <div class="lights red" style="top: -60px; right: -10px; animation-delay: 0.8s;"></div>
+    <div class="lights blue" style="top: -80px; left: -30px; animation-delay: 1s;"></div>
+    <div class="lights green" style="top: -80px; right: -30px; animation-delay: 1.2s;"></div>
+    <div class="lights purple" style="top: -100px; left: -50px; animation-delay: 1.4s;"></div>
+    <div class="lights red" style="top: -100px; right: -50px; animation-delay: 1.6s;"></div>
   </div>
 </body>
 </html>
