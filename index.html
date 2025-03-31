@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Glowing Christmas Tree</title>
   <style>
     body {
       background: #000;
@@ -16,90 +15,92 @@
       position: relative;
       width: 0;
       height: 0;
-      border-left: 100px solid transparent;
-      border-right: 100px solid transparent;
-      border-bottom: 200px solid #0a5f20;
-      animation: glow 2s infinite alternate;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 100px solid green;
     }
 
-    .tree::before,
+    .tree::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 0;
+      height: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 100px solid green;
+    }
+
     .tree::after {
       content: '';
       position: absolute;
+      top: -100px;
+      left: -50px;
       width: 0;
       height: 0;
-      border-left: 80px solid transparent;
-      border-right: 80px solid transparent;
-      border-bottom: 160px solid #0a5f20;
-      top: 40px;
-      left: -80px;
-      animation: glow 2s infinite alternate;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 100px solid green;
     }
 
-    .tree::after {
-      top: 80px;
-      left: -80px;
-      border-left: 60px solid transparent;
-      border-right: 60px solid transparent;
-      border-bottom: 120px solid #0a5f20;
-    }
-
-    .trunk {
+    .lights {
       position: absolute;
-      width: 40px;
-      height: 80px;
-      background: #8B4513;
-      bottom: -200px;
-      left: -20px;
-    }
-
-    .star {
-      position: absolute;
-      width: 0;
-      height: 0;
-      border-left: 20px solid transparent;
-      border-right: 20px solid transparent;
-      border-bottom: 40px solid #ffd700;
-      top: -40px;
-      left: -20px;
-      animation: twinkle 1s infinite alternate;
-    }
-
-    .ornament {
-      position: absolute;
-      width: 20px;
-      height: 20px;
+      width: 10px;
+      height: 10px;
+      background: yellow;
       border-radius: 50%;
-      background: red;
+      box-shadow: 0 0 10px yellow;
       animation: glow 1s infinite alternate;
     }
 
-    .ornament:nth-child(1) { top: -50px; left: -30px; }
-    .ornament:nth-child(2) { top: -30px; left: 40px; }
-    .ornament:nth-child(3) { top: 20px; left: -60px; }
-    .ornament:nth-child(4) { top: 50px; left: 20px; }
-    .ornament:nth-child(5) { top: 100px; left: -40px; }
-
-    @keyframes glow {
-      from { filter: brightness(1); }
-      to { filter: brightness(1.5); }
+    .lights:nth-child(1) {
+      top: -20px;
+      left: -20px;
+      animation-delay: 0s;
     }
 
-    @keyframes twinkle {
-      from { transform: scale(1); }
-      to { transform: scale(1.2); }
+    .lights:nth-child(2) {
+      top: -40px;
+      left: 0;
+      animation-delay: 0.2s;
+    }
+
+    .lights:nth-child(3) {
+      top: -20px;
+      right: -20px;
+      animation-delay: 0.4s;
+    }
+
+    .lights:nth-child(4) {
+      top: -60px;
+      left: -10px;
+      animation-delay: 0.6s;
+    }
+
+    .lights:nth-child(5) {
+      top: -60px;
+      right: -10px;
+      animation-delay: 0.8s;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px yellow;
+      }
+      to {
+        box-shadow: 0 0 20px yellow, 0 0 30px yellow;
+      }
     }
   </style>
 </head>
 <body>
   <div class="tree">
-    <div class="trunk"></div>
-    <div class="star"></div>
-    <div class="ornament"></div>
-    <div class="ornament"></div>
-    <div class="ornament"></div>
-    <div class="ornament"></div>
-    <div class="ornament"></div>
+    <div class="lights"></div>
+    <div class="lights"></div>
+    <div class="lights"></div>
+    <div class="lights"></div>
+    <div class="lights"></div>
   </div>
 </body>
 </html>
